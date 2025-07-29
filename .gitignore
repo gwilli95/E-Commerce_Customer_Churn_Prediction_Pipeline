@@ -3,7 +3,7 @@ dist/
 poetry.lock
 
 # data
-src/data/
+src/breast_cancer_poc_pipe/data/
 
 # random
 *.DS_Store
