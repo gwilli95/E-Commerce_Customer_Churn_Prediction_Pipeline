@@ -1,6 +1,7 @@
 # python env
 dist/
 poetry.lock
+**/__pycache__/
 
 # data
 src/breast_cancer_poc_pipe/data/
