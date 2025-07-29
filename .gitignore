@@ -1,0 +1,9 @@
+# python env
+dist/
+poetry.lock
+
+# data
+src/data/
+
+# random
+*.DS_Store
