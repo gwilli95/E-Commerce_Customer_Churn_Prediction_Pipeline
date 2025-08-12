@@ -6,18 +6,19 @@ from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from config import DATA_PATH
 
-def ingest_kaggle_data(handle, path=DATA_PATH):
+def ingest_kaggle_data(kaggle_dataset, path=DATA_PATH):
+    #Augthentication
     api = kaggle.KaggleApi()
     api.authenticate()
     
-    #Ensures path is a pathlib path; converts it if it is a string, and keeps it the same otherwise
+    #Ensures path is a pathlib path object; converts it if it is a string, and keeps it the same otherwise
     path = pathlib.Path(path)
-        
+    #Creates a folder out of the path; fills in any missing parent folders, and doesn't cause an error if the parents and the folder already exist
     path.mkdir(parents=True, exist_ok=True)
 
-    api.dataset_download_files(handle, path=str(path), unzip=True)
-    first_csv = [f for f in os.listdir(path) if f.endswith(".csv")][0]
-    first_csv_path = os.path.join(path, first_csv)
+    #Downloads the dataset files and gets the first .csv file
+    api.dataset_download_files(dataset=kaggle_dataset, path=str(path), unzip=True)
+    first_csv_path = next(path.glob("*.csv"))
     
     df = pd.read_csv(first_csv_path)
     
@@ -59,4 +60,3 @@ def impute_missing(df):
     df[cat_cols] = df[cat_cols].astype(str)
 
     return df
-    
