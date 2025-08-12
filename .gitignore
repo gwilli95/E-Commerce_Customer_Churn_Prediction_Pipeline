@@ -1,10 +1,11 @@
-# python env
-dist/
-poetry.lock
-**/__pycache__/
+#Virtual environment
+.venv/
 
-# data
-src/breast_cancer_poc_pipe/data/
+#All folders named __pycache__ nested in any folders
+__pycache__/
 
-# random
+#Stored data, including output file
+src/data/
+
+#Random
 *.DS_Store
