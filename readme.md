@@ -1,5 +1,6 @@
 # Customer Churn Prediction Pipeline Using Kaggle API and Random Forest
-This data science project ingests an e-commerce customer churn dataset from Kaggle using the Kaggle package API, visualizes and preprocesses the data, trains Random Forest Classifier with light hyper-parameter tuning, and outputs predicted churn back to the processed dataset, demonstrating a full basic pipeline and providing a scalable and expandable template for similar projects and applications.
+ - Summary: Data science project that ingests e-commerce customer churn dataset from Kaggle API, visualizes and preprocesses the dataset, trains Random Forest Classifier with light hyper-parameter tuning, and outputs predicted churn back to the processed dataset.
+- Use: This project demonstrates a full basic pipeline and provides a scalable and expandable template for similar projects and applications.
 
 ## Project Overview
 ### Data Used
@@ -33,13 +34,36 @@ Test classification report:
 weighted avg       0.96      0.96      0.96      1689
 ```
 
-### Project Structure: Supplemental Files
- - __init__.py: Left empty and used to denote the src/ folder as a package for modular imports.
- - config.py: Used for centralized configuration of the Kaggle dataset identifier and the paths for all project folders, which are imported in the notebooks.
- - utils.py: Stores functions used for data ingestion and preprocessing.
- - poetry.lock and pyproject.toml: This project utilizes Poetry dependency management.
+### Project Structure
+ - `__init__.py`: Left empty and used to denote the src/ folder as a package for modular imports.
+ - `config.py`: Used for centralized configuration of the Kaggle dataset identifier and the paths for all project folders, which are imported in the notebooks.
+ - `utils.py`: Stores functions used for data ingestion and preprocessing.
+ - `poetry.lock` and `pyproject.toml`: This project utilizes Poetry dependency management.
 
 ## Setup and Usage
 ### Prerequisites
  - Python version 3.12 or higher.
- - ...
+ - Poetry dependency manager installed
+ - Kaggle account and authentication
+
+### Usage Steps
+  - Clone repository 
+  - Install Poetry if needed
+    - Run `pip install poetry` OR
+    - See Poetry website (https://pypi.org/project/poetry/) for details on alternative methods that may be more preferable.
+ - Kaggle authentication
+  - Kaggle authentication performed privately and automatically by source code once users have taken the following authentication steps (see Kaggle API webpage for details: https://www.kaggle.com/docs/api):
+    - Kaggle > "Account" tab > "Create New Token" --> This will download a file named kaggle.json with API credentials.
+    - Use command-line interface to move kaggle.json to .kaggle folder
+        - On Linux/OSX:
+          - ... `~/.kaggle/kaggle.json`
+        - On Windows:
+          - ... `C:\Users\<Windows-username>\.kaggle\kaggle.json`
+```
+Authentication
+In order to use the Kaggle’s public API, you must first authenticate using an API token. Go to the 'Account' tab of your user profile and select 'Create New Token'. This will trigger the download of kaggle.json, a file containing your API credentials.
+
+If you are using the Kaggle CLI tool, the tool will look for this token at ~/.kaggle/kaggle.json on Linux, OSX, and other UNIX-based operating systems, and at C:\Users\<Windows-username>\.kaggle\kaggle.json on Windows. If the token is not there, an error will be raised. Hence, once you’ve downloaded the token, you should move it from your Downloads folder to this folder.
+
+If you are using the Kaggle API directly, where you keep the token doesn’t matter, so long as you are able to provide your credentials at runtime.
+```
