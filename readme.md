@@ -50,7 +50,8 @@ weighted avg       0.96      0.96      0.96      1689
  - Limited error handling (such as in utils functions); scaling this project or adapting it for use with substantially different datasets may cause runtime errors and require modifying code directly.
 
 ### Usage Steps
-  - Clone repository 
+  - Clone repository
+    - `git clone https://github.com/gwilli95/E-Commerce_Customer_Churn_Prediction_Pipeline`
   - Install Poetry if needed
     - Run `pip install poetry` OR
     - See Poetry website (https://pypi.org/project/poetry/) for details on alternative methods that could be more preferable for your setup.
