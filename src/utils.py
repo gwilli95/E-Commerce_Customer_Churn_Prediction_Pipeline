@@ -16,15 +16,15 @@ def ingest_kaggle_data(kaggle_dataset, path=DATA_PATH):
     #Creates a folder out of the path; fills in any missing parent folders, and doesn't cause an error if the parents and the folder already exist
     path.mkdir(parents=True, exist_ok=True)
 
-    #Downloads the dataset files and gets the first .csv file
+    #Downloads the dataset files, gets the first .csv file, and reads it into a dataframe
     api.dataset_download_files(dataset=kaggle_dataset, path=str(path), unzip=True)
     first_csv_path = next(path.glob("*.csv"))
-    
     df = pd.read_csv(first_csv_path)
     
     return df
 
 def list_column_types(df):
+    """Assumes no values such as empty spaces, which will cause overestimation of number of unique values in a column. Such data points should be replaced with np.nan, which do not add to .nunique. Assumes numerical values are not string type."""
     binary_cols = [col for col in df.columns if df[col].nunique() == 2]
     num_cols = df.select_dtypes(include = "number").columns.tolist()
     for col in binary_cols:

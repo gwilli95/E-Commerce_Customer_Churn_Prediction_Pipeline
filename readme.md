@@ -46,24 +46,22 @@ weighted avg       0.96      0.96      0.96      1689
  - Poetry dependency manager installed
  - Kaggle account and authentication
 
+### Limitations
+ - Limited error handling (such as in utils functions); scaling this project or adapting it for use with substantially different datasets may cause runtime errors and require modifying code directly.
+
 ### Usage Steps
   - Clone repository 
   - Install Poetry if needed
     - Run `pip install poetry` OR
-    - See Poetry website (https://pypi.org/project/poetry/) for details on alternative methods that may be more preferable.
+    - See Poetry website (https://pypi.org/project/poetry/) for details on alternative methods that could be more preferable for your setup.
  - Kaggle authentication
-  - Kaggle authentication performed privately and automatically by source code once users have taken the following authentication steps (see Kaggle API webpage for details: https://www.kaggle.com/docs/api):
-    - Kaggle > "Account" tab > "Create New Token" --> This will download a file named kaggle.json with API credentials.
-    - Use command-line interface to move kaggle.json to .kaggle folder
-        - On Linux/OSX:
-          - ... `~/.kaggle/kaggle.json`
-        - On Windows:
-          - ... `C:\Users\<Windows-username>\.kaggle\kaggle.json`
-```
-Authentication
-In order to use the Kaggle’s public API, you must first authenticate using an API token. Go to the 'Account' tab of your user profile and select 'Create New Token'. This will trigger the download of kaggle.json, a file containing your API credentials.
-
-If you are using the Kaggle CLI tool, the tool will look for this token at ~/.kaggle/kaggle.json on Linux, OSX, and other UNIX-based operating systems, and at C:\Users\<Windows-username>\.kaggle\kaggle.json on Windows. If the token is not there, an error will be raised. Hence, once you’ve downloaded the token, you should move it from your Downloads folder to this folder.
-
-If you are using the Kaggle API directly, where you keep the token doesn’t matter, so long as you are able to provide your credentials at runtime.
-```
+    - Kaggle authentication performed privately and automatically by source code once users have taken the following authentication steps (see Kaggle API webpage for details: https://www.kaggle.com/docs/api):
+        - Kaggle > "Account" tab > "Create New Token" --> This will download a file named kaggle.json with API credentials.
+        - Use command-line interface to move kaggle.json to .kaggle folder
+            - On Linux/OSX:
+              - `mkdir -p ~/.kaggle`
+              - `mv ~/Downloads/kaggle.json ~/.kaggle/`
+              - `chmod 600 ~/.kaggle/kaggle.json`
+            - On Windows:
+              - `mkdir $env:USERPROFILE\.kaggle`
+              - `move ~\Downloads\kaggle.json $env:USERPROFILE\.kaggle\`
