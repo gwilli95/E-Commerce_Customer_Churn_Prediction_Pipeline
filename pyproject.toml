@@ -1,12 +1,12 @@
 [project]
-name = "e-commerce_churn_prediction_pipeline"
+name = "e-commerce_customer_churn_prediction_pipeline"
 version = "0.1.0"
 description = "Pipeline to predict e-commerce customer churn from Kaggle dataset API"
 authors = [
     {name = "gwilli95",email = "grantrwilliams7@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.10,<3.14"
 dependencies = [
     "pandas (>=2.3.1,<3.0.0)",
     "requests (>=2.32.4,<3.0.0)",
@@ -15,6 +15,8 @@ dependencies = [
     "kaggle (>=1.7.4.5,<2.0.0.0)",
     "supertree (>=0.5.5,<0.6.0)",
 ]
+
+package-mode = false
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

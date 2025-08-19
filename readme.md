@@ -4,7 +4,7 @@
 
 ## Project Overview
 ### Data Used
-This project uses "E-Commerce Dataset," published on Kaggle by user Anagha Paul in October 2024. It is a synthetic dataset with a mix of realistic features (8 numerical and 12 categorical) and intentionally missing values, and it is intented for practicing and demonstrating industry-relevant data cleaning, exploration, and modeling. Its identifier, used for ingestion via the Kaggle package, is "anaghapaul/e-commerce-dataset."
+This project uses "E-Commerce Dataset," published on Kaggle by user Anagha Paul in October 2024. It is a synthetic dataset with a mix of realistic features (8 numerical and 12 categorical) and with intentionally missing values, and it is intented for practicing and demonstrating industry-relevant data cleaning, exploration, and modeling. Its identifier, used for ingestion via the Kaggle package, is "anaghapaul/e-commerce-dataset."
 
 ### Model Used
 The model used is Random Forest Classifier from scikit-learn. GridSearchCV was used for light hyper-parameter optimization.
@@ -42,7 +42,7 @@ weighted avg       0.96      0.96      0.96      1689
 
 ## Setup and Usage
 ### Prerequisites
- - Python version 3.12 or higher.
+ - Python version 3.10 or higher.
  - Poetry dependency manager installed
  - Kaggle account and authentication
 
@@ -55,6 +55,8 @@ weighted avg       0.96      0.96      0.96      1689
   - Install Poetry if needed
     - Run `pip install poetry` OR
     - See Poetry website (https://pypi.org/project/poetry/) for details on alternative methods that could be more preferable for your setup.
+ - Download dependencies
+    - Run `poetry install --no-root`
  - Kaggle authentication
     - Kaggle authentication performed privately and automatically by source code once users have taken the following authentication steps (see Kaggle API webpage for details: https://www.kaggle.com/docs/api):
         - Kaggle > "Account" tab > "Create New Token" --> This will download a file named kaggle.json with API credentials.
