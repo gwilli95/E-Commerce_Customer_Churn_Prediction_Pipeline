@@ -1,6 +1,6 @@
 # Customer Churn Prediction Pipeline Using Kaggle API and Random Forest
  - Summary: Data science project that ingests e-commerce customer churn dataset from Kaggle API, visualizes and preprocesses the dataset, trains Random Forest Classifier with light hyper-parameter tuning, and outputs predicted churn back to the processed dataset.
-- Use: This project demonstrates a full basic pipeline and provides a scalable and expandable template for similar projects and applications.
+ - Use: This project demonstrates a full basic pipeline and provides a scalable and expandable template for similar projects and applications.
 
 ## Project Overview
 ### Data Used
@@ -38,12 +38,12 @@ weighted avg       0.96      0.96      0.96      1689
  - `__init__.py`: Left empty and used to denote the src/ folder as a package for modular imports.
  - `config.py`: Used for centralized configuration of the Kaggle dataset identifier and the paths for all project folders, which are imported in the notebooks.
  - `utils.py`: Stores functions used for data ingestion and preprocessing.
- - `poetry.lock` and `pyproject.toml`: This project utilizes Poetry dependency management.
+ - `uv.lock` and `pyproject.toml`: This project utilizes uv dependency management.
 
 ## Setup and Usage
 ### Prerequisites
  - Python version 3.10 or higher.
- - Poetry dependency manager installed
+ - uv dependency manager installed
  - Kaggle account and authentication
 
 ### Limitations
@@ -52,19 +52,38 @@ weighted avg       0.96      0.96      0.96      1689
 ### Usage Steps
   - Clone repository
     - `git clone https://github.com/gwilli95/E-Commerce_Customer_Churn_Prediction_Pipeline`
-  - Install Poetry if needed
-    - Run `pip install poetry` OR
-    - See Poetry website (https://pypi.org/project/poetry/) for details on alternative methods that could be more preferable for your setup.
- - Download dependencies
-    - Run `poetry install --no-root`
- - Kaggle authentication
+  - Kaggle authentication
     - Kaggle authentication performed privately and automatically by source code once users have taken the following authentication steps (see Kaggle API webpage for details: https://www.kaggle.com/docs/api):
         - Kaggle > "Account" tab > "Create New Token" --> This will download a file named kaggle.json with API credentials.
         - Use command-line interface to move kaggle.json to .kaggle folder
-            - On Linux/OSX:
+            - On Linux/macOS:
               - `mkdir -p ~/.kaggle`
               - `mv ~/Downloads/kaggle.json ~/.kaggle/`
               - `chmod 600 ~/.kaggle/kaggle.json`
             - On Windows:
               - `mkdir $env:USERPROFILE\.kaggle`
               - `move ~\Downloads\kaggle.json $env:USERPROFILE\.kaggle\`
+  - Install uv if needed and sync dependencies
+    - Run `pip install uv`
+    - Run `uv sync`
+  - Mac users:
+    - When attempting to sync dependencies using uv, particularly if the repository is cloned into an iCloud folder, you may encounter a Python version error in the Terminal:
+
+    `file pyproject.toml`
+    ```
+    pyproject.toml: cannot open 'pyproject.toml' (No such file or directory)
+    ```
+  
+    `uv sync`
+
+    ```
+    × No solution found when resolving dependencies for split (markers: python_full_version == '3.8.*'):
+    ╰─▶ Because the requested Python version (>=3.8) does not satisfy Python>=3.9 and pandas>=2.3.1 depends on Python>=3.9, we can
+        conclude that pandas>=2.3.1 cannot be used.
+        And because only the following versions of pandas are available:
+            pandas<=2.3.1
+            pandas==2.3.2
+        and your project depends on pandas>=2.3.1, we can conclude that your project's requirements are unsatisfiable.
+    ```
+
+    - This may be due to an issue where the project files appear in Finder or VS Code but are not yet fully downloaded and recognized by the Terminal, causing the Terminal not to recognize the Python version constraints specified in the `pyproject.toml` file. The easiest solution is to copy the full contents of the `pyproject.toml` file, delete the file, create a new file titled `pyproject.toml` in the same location, paste the contents, and save it. This creates a new local file recognized by the Terminal, and running `uv sync` again should download the dependencies as intended.
