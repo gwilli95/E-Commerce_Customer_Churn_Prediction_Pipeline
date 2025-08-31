@@ -35,7 +35,7 @@ weighted avg       0.96      0.96      0.96      1689
 ```
 
 ### Project Structure
- - `__init__.py`: Left empty and used to denote the src/ folder as a package for modular imports.
+ - `__init__.py`: Left empty and used to denote the churn_pipeline/ folder as a package for modular imports.
  - `config.py`: Used for centralized configuration of the Kaggle dataset identifier and the paths for all project folders, which are imported in the notebooks.
  - `utils.py`: Stores functions used for data ingestion and preprocessing.
  - `uv.lock` and `pyproject.toml`: This project utilizes uv dependency management.
