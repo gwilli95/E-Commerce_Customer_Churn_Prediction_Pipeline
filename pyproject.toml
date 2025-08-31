@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["churn_pipeline]
+packages = ["churn_pipeline"]
 
 [build-system]
 requires = ["hatchling>=1.0.0"]
