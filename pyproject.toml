@@ -1,5 +1,5 @@
 [project]
-name = "e-commerce_customer_churn_prediction_pipeline"
+name = "ecommerce_customer_churn_prediction_pipeline"
 version = "0.1.0"
 description = "Pipeline to predict e-commerce customer churn from Kaggle dataset API"
 authors = [
@@ -13,10 +13,12 @@ dependencies = [
     "scikit-learn (>=1.7.1,<2.0.0)",
     "seaborn (>=0.13.2,<0.14.0)",
     "kaggle (>=1.7.4.5,<2.0.0.0)",
-    "supertree (>=0.5.5,<0.6.0)",
+    "supertree>=0.5.5,<0.6.0",
 ]
 
-package-mode = false
+packages = [
+    {include = "ecommerce_customer_churn_prediction_pipeline"}
+]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

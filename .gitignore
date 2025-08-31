@@ -5,7 +5,7 @@
 __pycache__/
 
 #Stored data, including output file
-src/data/
+ecommerce_customer_churn_prediction_pipeline/data/
 
 #Random
 *.DS_Store
