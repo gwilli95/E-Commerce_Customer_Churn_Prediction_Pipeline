@@ -67,7 +67,7 @@ weighted avg       0.96      0.96      0.96      1689
     - Run `pip install uv`
     - Run `uv sync`
   - Mac users:
-    - When attempting to sync dependencies using uv, particularly if the repository is cloned into an iCloud folder, you may encounter a Python version error in the Terminal:
+    - When attempting to sync dependencies using uv, particularly if the repository is cloned into an iCloud folder, you may encounter a Python version error in the terminal:
 
     `file pyproject.toml`
     ```
@@ -86,4 +86,4 @@ weighted avg       0.96      0.96      0.96      1689
         and your project depends on pandas>=2.3.1, we can conclude that your project's requirements are unsatisfiable.
     ```
 
-    - This may be due to an issue where the project files appear in Finder or VS Code but are not yet fully downloaded and recognized by the Terminal, causing the Terminal not to recognize the Python version constraints specified in the `pyproject.toml` file. The easiest solution is to copy the full contents of the `pyproject.toml` file, delete the file, create a new file titled `pyproject.toml` in the same location, paste the contents, and save it. This creates a new local file recognized by the Terminal, and running `uv sync` again should download the dependencies as intended.
+    - This may be due to an issue where the project files appear in Finder or VS Code but are not yet fully downloaded and recognized by the terminal, causing the terminal not to recognize the Python version constraints specified in the `pyproject.toml` file. The easiest solution is to copy the full contents of the `pyproject.toml` file, delete the file, create a new file titled `pyproject.toml` in the same location, paste the contents, and save it. This creates a new local file recognized by the terminal, and running `uv sync` again should download the dependencies as intended.
