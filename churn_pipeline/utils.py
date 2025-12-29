@@ -7,7 +7,7 @@ from sklearn.impute import SimpleImputer
 from config import DATA_PATH
 
 def ingest_kaggle_data(kaggle_dataset, path=DATA_PATH):
-    #Augthentication
+    #Authentication
     api = kaggle.KaggleApi()
     api.authenticate()
     
